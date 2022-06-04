@@ -1,0 +1,11 @@
+./auth/node_modules
+./container/node_modules
+./dashboard/node_modules
+./marketing/node_modules
+auth/node_modules
+container/node_modules
+dashboard/node_modules
+marketing/node_modules
+
+.idea
+.DS_Store
