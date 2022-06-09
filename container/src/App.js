@@ -4,7 +4,7 @@ import MarketingApp from "./components/MarketingApp";
 export default () => {
   return (
     <>
-      <h1>Container Application with Github Actions</h1>
+      <h1>Container Application with Actions</h1>
       <hr/>
       <MarketingApp />
     </>
