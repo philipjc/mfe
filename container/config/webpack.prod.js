@@ -9,7 +9,7 @@ const domain = process.env.PRODUCTION_DOMAIN;
 module.exports = merge(commonConfig, {
   mode: 'production',
   output: {
-    filename: '[name].[contenthash].js'
+    filename: '/container/latest/[name].[contenthash].js'
   },
   plugins: [
     new ModuleFederationPlugin({
