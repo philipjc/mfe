@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'container/**'
+      - 'marketing/**'
 defaults:
   run:
     working-directory: 'container'
