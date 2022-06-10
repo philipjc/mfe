@@ -4,7 +4,7 @@ const packageJson = require('../package.json');
 
 const commonConfig = require('./webpack.common');
 
-const domain = process.env.PRODUCTION_DOMAIN;
+const domain = process.env.PRODUCTION_DOMAIN || 'no_prod_domain_found';
 
 module.exports = merge(commonConfig, {
   mode: 'production',
@@ -16,7 +16,7 @@ module.exports = merge(commonConfig, {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`, // this is a big assumption that these files will reside in the sub dirs.
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`, // this is a big assumption that these files will reside in the sub dirs.
       },
       shared: packageJson.dependencies,
     }),
