@@ -1,13 +1,13 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import MarketingApp from "./components/MarketingApp";
+import Header from './components/Header';
 
 export default () => {
   return (
-    <>
-      <h1>Container Application with Github Actions</h1>
-      <h3>Updated production config to match S3 file paths..</h3>
-      <hr/>
+    <BrowserRouter>
+      <Header />
       <MarketingApp />
-    </>
+    </BrowserRouter>
   )
 };
