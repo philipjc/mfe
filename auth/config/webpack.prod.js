@@ -5,23 +5,17 @@ const packageJson = require('../package.json');
 const commonConfig = require('./webpack.common');
 
 module.exports = merge(commonConfig,{
-  mode: 'development',
+  mode: 'production',
   output: {
-    publicPath: 'http://localhost:8081/', // forward slash is important
-  },
-  devServer: {
-    port: 8081,
-    // historyApiFallback: {
-    //   index: 'index.html',
-    // }
-    historyApiFallback: true,
+    filename: '[name].[contenthash].js',
+    publicPath: '/auth/latest/' // adds the extra cloud-front dir to path.
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'marketing',
+      name: 'auth',
       filename: 'remoteEntry.js',
       exposes: {
-        './MarketingApp': './src/bootstrap.js',
+        './AuthApp': './src/bootstrap.js',
       },
       shared: packageJson.dependencies
     })

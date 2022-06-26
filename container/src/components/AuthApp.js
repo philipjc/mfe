@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
-import { mount } from 'marketing/MarketingApp';
+import { mount } from 'auth/AuthApp';
 
 // This file runs the mount function from the micro frontend
 // passing a reference and a set of callback functions to
@@ -12,9 +12,11 @@ export default () => {
 
   useEffect(() => {
     const { onParentNavigate } = mount(ref.current, {
-      initialPath: history.location.pathname,
+
+      // a nice simple interface to understand routing.
+      initialPath: history.location.pathname, // part of x2 bug fix in auth routing.
       onNavigate: ({ pathname: marketingPath }) => {
-        console.log('container noticed navigate from marketing app.');
+        console.log('container noticed navigate from auth app.');
 
         const { pathname } = history.location;
         if (pathname !== marketingPath) {
