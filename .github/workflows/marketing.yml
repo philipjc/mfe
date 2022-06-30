@@ -6,10 +6,10 @@ on:
       - master
     paths:
       - 'marketing/**'
+
 defaults:
   run:
     working-directory: 'marketing'
-
 
 jobs:
   build:

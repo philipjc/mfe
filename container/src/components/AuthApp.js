@@ -6,7 +6,7 @@ import { mount } from 'auth/AuthApp';
 // passing a reference and a set of callback functions to
 // keep the routing in sync and inform when a route changes.
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
 
@@ -14,6 +14,10 @@ export default () => {
     const { onParentNavigate } = mount(ref.current, {
 
       // a nice simple interface to understand routing.
+      onAuthChange: () => {
+        console.log('on auth change from Auth in container.');
+        onSignIn();
+      },
       initialPath: history.location.pathname, // part of x2 bug fix in auth routing.
       onNavigate: ({ pathname: marketingPath }) => {
         console.log('container noticed navigate from auth app.');

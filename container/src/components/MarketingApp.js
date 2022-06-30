@@ -6,12 +6,19 @@ import { mount } from 'marketing/MarketingApp';
 // passing a reference and a set of callback functions to
 // keep the routing in sync and inform when a route changes.
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
 
   useEffect(() => {
+
+    // destructor callback from the mount function create in sub apps bootstrap.
     const { onParentNavigate } = mount(ref.current, {
+
+      onAuthChange: () => {
+        console.log('on auth change from Marketing in container.');
+        onSignIn();
+      },
       initialPath: history.location.pathname,
       onNavigate: ({ pathname: marketingPath }) => {
         console.log('container noticed navigate from marketing app.');

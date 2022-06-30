@@ -6,10 +6,10 @@ on:
       - master
     paths:
       - 'auth/**'
+
 defaults:
   run:
     working-directory: 'auth'
-
 
 jobs:
   build:
