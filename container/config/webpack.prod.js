@@ -16,10 +16,10 @@ module.exports = merge(commonConfig, {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
+        auth: `auth@${domain}/auth/latest/remoteEntry.js`,
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`, // this is a big assumption that these files will reside in the sub dirs.
       },
       shared: packageJson.dependencies,
     }),
   ]
 });
-
