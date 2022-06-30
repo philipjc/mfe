@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {createMemoryHistory, createBrowserHistory} from 'history';
 import App from './App';
 
-const mount = (el, {onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, {onNavigate, defaultHistory, initialPath, onAuthChange }) => {
 
   // create memory has an event; listen
   // defaultHistory: comes from development mode for isolation routing
@@ -17,7 +17,7 @@ const mount = (el, {onNavigate, defaultHistory, initialPath }) => {
 
   console.log('====================')
   console.log('mounting marketing..');
-  ReactDOM.render(<App history={history}/>, el);
+  ReactDOM.render(<App history={history} authChange={onAuthChange} />, el);
 
   // parent (container) can run theses to communicate between.
   return {

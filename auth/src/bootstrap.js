@@ -11,6 +11,7 @@ const mount = (el, {onNavigate, defaultHistory, initialPath, onAuthChange}) => {
   const history = defaultHistory || createMemoryHistory({
     initialEntries: [initialPath], // solves x2 bug. bit hacky.
   });
+  
   // createMemoryHistory starts with a history of '/'
   // App.js routing currently handles routes but no '/'
   // Bug: have to click Login x2 before seeing routes.

@@ -13,7 +13,7 @@ const generateClassNames = createGenerateClassName({
 
 export default () => {
   // auth button is clicked callbacks set bool to true, then here in the container
-  // the app knows if signed in or not. wrap components in isSignedIn tp hide/show
+  // the app knows if signed in or not. wrap components in isSignedIn tp hide/show.
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   return (
