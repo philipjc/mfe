@@ -81,16 +81,29 @@ export default function Header({ signedIn, onSignOut }) {
           >
             App
           </Typography>
-          <Button
-            color="primary"
-            variant="outlined"
-            className={classes.link}
-            component={RouterLink}
-            to={signedIn ? '/' : '/auth/signin'}
-            onClick={onClick}
-          >
-            {signedIn ? 'Logout' : 'Login'}
-          </Button>
+          <Toolbar>
+            {signedIn &&
+              <Button
+                style={{marginRight: '20px'}}
+                color="primary"
+                variant="outlined"
+                className={classes.link}
+                component={RouterLink}
+                to="/dashboard"
+              >
+                Dashboard
+              </Button>}
+            <Button
+              color="primary"
+              variant="outlined"
+              className={classes.link}
+              component={RouterLink}
+              to={signedIn ? '/' : '/auth/signin'}
+              onClick={onClick}
+            >
+              {signedIn ? 'Logout' : 'Login'}
+            </Button>
+          </Toolbar>
         </Toolbar>
       </AppBar>
     </React.Fragment>

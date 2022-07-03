@@ -16,8 +16,10 @@ module.exports = merge(commonConfig, {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
+        // this is a big assumption that these files will reside in the sub dirs in S3.
         auth: `auth@${domain}/auth/latest/remoteEntry.js`,
-        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`, // this is a big assumption that these files will reside in the sub dirs.
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),
